@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import './App.scss'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import FullPageSlider from './widgets/FullPageSlider'
+import Introduction from './pages/Introduction'
+import Skills from './pages/Skills'
+import Works from './pages/Works'
+
+export default class App extends React.Component {
+    render() {
+        return (
+            <FullPageSlider>
+                <Introduction key={0} />
+                <Skills  key={1} />
+                <Works  key={2} />
+            </FullPageSlider>
+        )
+    }
 }
-
-export default App;
