@@ -10,9 +10,9 @@ export default class App extends React.Component {
     render() {
         return (
             <FullPageSlider>
-                <Introduction key={0} />
-                <Skills  key={1} />
-                <Works  key={2} />
+                <Introduction key={0}/>
+                <Skills  key={1}/>
+                <Works  key={2}/>
             </FullPageSlider>
         )
     }

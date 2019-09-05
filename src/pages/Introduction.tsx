@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-export default class Introduction extends React.Component {
+export default class Introduction extends React.Component <{}, {}> {
     render () {
         return (
-            <section className="p-1"></section>
+            <section className="full-page p-1"></section>
         )
     }
 }
