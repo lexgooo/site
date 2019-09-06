@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { CSSTransition } from 'react-transition-group'
-import Indicators from './Indicators/Indicators'
 
-import '../animation/animation.scss'
+import Indicators from './Indicators'
+import Menus from './Menus'
+
+
+import '../styles/animation.scss'
 
 interface SliderProps {
     children: JSX.Element[]
@@ -14,6 +17,7 @@ interface SliderState {
     keys: any[]
     list: any[]
     scrollAble: boolean
+    currentBgColor: string
 }
 
 export default class FullPageSlider extends React.Component<
@@ -28,12 +32,14 @@ export default class FullPageSlider extends React.Component<
             activeKey: 0,
             keys: [],
             list: [],
-            scrollAble: true
+            scrollAble: true,
+            currentBgColor: '',
         }
     }
     componentDidMount() {
         const length = this.props.children.length
         const children = this.props.children
+        let currentBgColor:string = this.state.currentBgColor
         const keys = children.map(item => item.key)
         const activeKey = keys[0]
         const list = children.map(item => {
@@ -44,6 +50,7 @@ export default class FullPageSlider extends React.Component<
             }
             if (activeKey === i.key) {
                 i.show = true
+                currentBgColor = item.props.bgColor
             }
             return i
         })
@@ -51,14 +58,17 @@ export default class FullPageSlider extends React.Component<
             length,
             keys,
             activeKey,
-            list
+            list,
+            currentBgColor
         })
     }
-    handleClick = (key: any): void => {
+    scrollChange = (key: any): void => {
         const prevKey = this.state.activeKey
+        let currentBgColor: string = this.state.currentBgColor
         const list = this.state.list.map(item => {
             if (key === item.key) {
                 item.show = true
+                currentBgColor = item.element.props.bgColor
             } else {
                 item.show = false
             }
@@ -67,7 +77,8 @@ export default class FullPageSlider extends React.Component<
         this.setState({
             activeKey: key,
             prevKey,
-            list
+            list,
+            currentBgColor
         })
         let timer = setTimeout(() => {
             this.setState({
@@ -99,9 +110,9 @@ export default class FullPageSlider extends React.Component<
                     ? 'down' /** 显示更下面的内容 */
                     : 'up' /** 显示更上面的内容 */
             if (direction === 'up') {
-                this.handleClick(upKey)
+                this.scrollChange(upKey)
             } else {
-                this.handleClick(downKey)
+                this.scrollChange(downKey)
             }
         }
     }
@@ -139,12 +150,16 @@ export default class FullPageSlider extends React.Component<
     }
     render() {
         return (
-            <main onWheel={(e: any) => this.handleScroll(e)}>
+            <main onWheel={(e: any) => this.handleScroll(e)} style={{overflow: 'hidden'}}>
+                <Menus 
+                    currentBgColor={this.state.currentBgColor}
+                />
                 <div>{this.children()}</div>
                 <Indicators
                     keys={this.state.keys}
                     activeKey={this.state.activeKey}
-                    onClick={this.handleClick}
+                    onClick={this.scrollChange}
+                    currentBgColor={this.state.currentBgColor}
                 />
             </main>
         )

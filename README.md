@@ -25,6 +25,10 @@
     # or
     yarn eject
 
+## 使用的第三方插件，库
+- [color](https://github.com/Qix-/color) : 颜色值处理插件
+- [Radium](https://github.com/FormidableLabs/radium) : 增强 react 的 css in js 功能的插件
+
 ## TODO List
 - [ ] 整屏滚动动画在跨页时，内容不连续
-- [ ] 滚动时根据当前背景判断右侧标识点的颜色
+- [x] 滚动时根据当前背景判断右侧标识点的颜色

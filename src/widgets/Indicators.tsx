@@ -1,13 +1,23 @@
 import * as React from 'react'
-import './style.scss'
+import Color from 'color'
 
 interface IndicatorsProps {
-    keys: any[],
-    activeKey: any,
+    keys: any[]
+    activeKey: any
     onClick: any
+    currentBgColor: string
 }
 
 export default class Indicators extends React.Component <IndicatorsProps, {}> {
+    setColor(): {active: string; default: string} {
+        const currentBgColor = this.props.currentBgColor || '#fff'
+        const color = Color(`${currentBgColor}`)
+        const isLight = color.isLight()
+        return {
+            active: color.negate().hex(),
+            default: isLight ? color.darken(0.2).hex() : color.lighten(0.2).hex()
+        }
+    }
     render() {
         return (
             <div style={{
@@ -20,10 +30,11 @@ export default class Indicators extends React.Component <IndicatorsProps, {}> {
                 justifyContent: 'center'
             }}>
                 {this.props.keys.map(item => {
-                    return <span className={item === this.props.activeKey  ? 'active' : 'default'} key={item} style={{
+                    return <span key={item} style={{
                         width: '15px',
                         height: '3px',
                         borderRadius: '2.5px',
+                        background: item === this.props.activeKey ? this.setColor().active : this.setColor().default,
                         marginBottom: '15px'
                     }} onClick={() => this.props.onClick(item)}></span>
                 })}
