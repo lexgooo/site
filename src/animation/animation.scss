@@ -1,0 +1,37 @@
+.slide-in-up {
+    position: absolute;
+    animation: slideInUp 1s;
+}
+.slide-in-down {
+    position: absolute;
+    animation: slideInDown 1s;
+}
+.slide-out-up {
+    position: absolute;
+    animation: slideOutUp 1s;
+}
+
+.slide-out-down {
+    position: absolute;
+    animation: slideOutDown 1s;
+}
+
+@keyframes slideInUp {
+    from {top: 100vh;}
+    to {top: 0}
+}
+
+@keyframes slideInDown {
+    from {bottom: 0;}
+    to {bottom: 100vh;}
+}
+
+@keyframes slideOutUp {
+    from {bottom: 100vh;}
+    to {bottom: 0;}
+}
+
+@keyframes slideOutDown {
+    from {top: 0;}
+    to {top: 100vh}
+}

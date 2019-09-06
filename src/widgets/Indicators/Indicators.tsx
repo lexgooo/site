@@ -1,4 +1,5 @@
 import * as React from 'react'
+import './style.scss'
 
 interface IndicatorsProps {
     keys: any[],
@@ -19,11 +20,10 @@ export default class Indicators extends React.Component <IndicatorsProps, {}> {
                 justifyContent: 'center'
             }}>
                 {this.props.keys.map(item => {
-                    return <span key={item} style={{
-                        width: '25px',
-                        height: '5px',
+                    return <span className={item === this.props.activeKey  ? 'active' : 'default'} key={item} style={{
+                        width: '15px',
+                        height: '3px',
                         borderRadius: '2.5px',
-                        background: item === this.props.activeKey ? '#3f3f3f' : '#f3f3f3',
                         marginBottom: '15px'
                     }} onClick={() => this.props.onClick(item)}></span>
                 })}
