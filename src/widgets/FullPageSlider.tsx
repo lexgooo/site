@@ -162,7 +162,7 @@ export default class FullPageSlider extends React.Component<
                 <Menus currentBgColor={this.state.currentBgColor} />
                 <div style={{
                     transition: 'all 700ms ease 0ms',
-                    transform: `translateY(-${this.state.activeKey * 100}vh)`
+                    transform: `translateY(-${this.state.keys.findIndex(i => i === this.state.activeKey) * 100}vh)`
                 }}>{this.children()}</div>
                 <Indicators
                     keys={this.state.keys}
