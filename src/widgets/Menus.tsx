@@ -29,7 +29,7 @@ export default class Menus extends React.Component<MenusProps, {}> {
         return (
             <div
                 style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     top: '15px',
                     right: '15px'
                 }}
