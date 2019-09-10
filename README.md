@@ -28,6 +28,8 @@
 ## 使用的第三方插件，库
 - [color](https://github.com/Qix-/color) : 颜色值处理插件
 - [Radium](https://github.com/FormidableLabs/radium) : 增强 react 的 css in js 功能的插件
+- [React Transition Group](https://reactcommunity.org/react-transition-group/) : react 动画组件
+- [动画改造参考](https://alvarotrigo.com/fullPage/extensions/scrolloverflow-reset.html#firstPage)
 
 ## TODO List
 - [ ] 整屏滚动动画在跨页时，内容不连续

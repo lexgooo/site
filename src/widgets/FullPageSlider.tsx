@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 
 import Indicators from './Indicators'
 import Menus from './Menus'
-
 
 import '../styles/animation.scss'
 
@@ -33,13 +32,13 @@ export default class FullPageSlider extends React.Component<
             keys: [],
             list: [],
             scrollAble: true,
-            currentBgColor: '',
+            currentBgColor: ''
         }
     }
     componentDidMount() {
         const length = this.props.children.length
         const children = this.props.children
-        let currentBgColor:string = this.state.currentBgColor
+        let currentBgColor: string = this.state.currentBgColor
         const keys = children.map(item => item.key)
         const activeKey = keys[0]
         const list = children.map(item => {
@@ -118,42 +117,49 @@ export default class FullPageSlider extends React.Component<
     }
     children(): JSX.Element[] | any {
         return this.state.list.map((item: any) => {
-            return this.animationElement(item)
-        })
-    }
-    animationElement(item: any): JSX.Element {
-        const keys = this.state.keys
-        const prevKey = this.state.prevKey
-        const activeKey = this.state.activeKey
-        const prevKeyIndex = keys.findIndex(i => i === prevKey)
-        const activeKeyIndex = keys.findIndex(i => i === activeKey)
-        const up = activeKeyIndex > prevKeyIndex
-        const inAnimateClass = up ? 'slide-in-up' : 'slide-in-down'
-        const outAnimateClass = up ? 'slide-out-up' : 'slide-out-down'
-        return (
-            <CSSTransition
-                in={item.show}
-                timeout={1000}
-                unmountOnExit
-                classNames={{
-                    // appearActive: inAnimateClass,
-                    enterActive: inAnimateClass,
-                    exitActive: outAnimateClass
-                }}
-                key={item.key}
-            >
+            return (
                 <div style={{ width: '100vw', height: '100vh' }}>
                     {item.element}
                 </div>
-            </CSSTransition>
-        )
+            )
+        })
     }
+    // animationElement(item: any): JSX.Element {
+    //     const keys = this.state.keys
+    //     const prevKey = this.state.prevKey
+    //     const activeKey = this.state.activeKey
+    //     const prevKeyIndex = keys.findIndex(i => i === prevKey)
+    //     const activeKeyIndex = keys.findIndex(i => i === activeKey)
+    //     const up = activeKeyIndex > prevKeyIndex
+    //     const inAnimateClass = up ? 'slide-in-up' : 'slide-in-down'
+    //     const outAnimateClass = up ? 'slide-out-up' : 'slide-out-down'
+    //     return (
+    //         <CSSTransition
+    //             in={item.show}
+    //             timeout={1000}
+    //             unmountOnExit
+    //             classNames={{
+    //                 // appearActive: inAnimateClass,
+    //                 appear: 'animate',
+    //                 enterActive: inAnimateClass,
+    //                 exit: 'animate',
+    //                 exitActive: outAnimateClass
+    //             }}
+    //             key={item.key}
+    //         >
+    //             <div style={{ width: '100vw', height: '100vh' }}>
+    //                 {item.element}
+    //             </div>
+    //         </CSSTransition>
+    //     )
+    // }
     render() {
         return (
-            <main onWheel={(e: any) => this.handleScroll(e)} style={{overflow: 'hidden'}}>
-                <Menus 
-                    currentBgColor={this.state.currentBgColor}
-                />
+            <main
+                onWheel={(e: any) => this.handleScroll(e)}
+                style={{ overflow: 'hidden' }}
+            >
+                <Menus currentBgColor={this.state.currentBgColor} />
                 <div>{this.children()}</div>
                 <Indicators
                     keys={this.state.keys}

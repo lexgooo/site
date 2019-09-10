@@ -1,18 +1,18 @@
-.slide-in-up {
+.animate {
     position: absolute;
+}
+.slide-in-up {
     animation: slideInUp 1s;
 }
 .slide-in-down {
-    position: absolute;
     animation: slideInDown 1s;
 }
 .slide-out-up {
-    position: absolute;
     animation: slideOutUp 1s;
 }
 
 .slide-out-down {
-    position: absolute;
+    
     animation: slideOutDown 1s;
 }
 
