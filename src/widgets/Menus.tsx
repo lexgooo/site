@@ -31,7 +31,8 @@ export default class Menus extends React.Component<MenusProps, {}> {
                 style={{
                     position: 'fixed',
                     top: '15px',
-                    right: '15px'
+                    right: '15px',
+                    zIndex: 1
                 }}
             >
                 <span style={this.iconStyle()}></span>

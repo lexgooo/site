@@ -31,9 +31,9 @@ export default class Indicators extends React.Component <IndicatorsProps, {}> {
             }}>
                 {this.props.keys.map(item => {
                     return <span key={item} style={{
-                        width: '15px',
-                        height: '3px',
-                        borderRadius: '2.5px',
+                        width: '18px',
+                        height: '2px',
+                        borderRadius: '1px',
                         background: item === this.props.activeKey ? this.setColor().active : this.setColor().default,
                         marginBottom: '15px'
                     }} onClick={() => this.props.onClick(item)}></span>

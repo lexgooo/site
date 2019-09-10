@@ -8,14 +8,15 @@ import Works from './pages/Works'
 
 export default class App extends React.Component {
     state = {
-        pagePadding: '15px'
+        pagePadding: '15px',
+        topGap: '38.2vh'
     }
     render() {
         return (
             <FullPageSlider>
-                <Introduction bgColor='#ececec' padding={this.state.pagePadding} key={0}/>
-                <Skills bgColor='#595959' padding={this.state.pagePadding} key={1}/>
-                <Works bgColor="#ececec" padding={this.state.pagePadding} key={2}/>
+                <Introduction bgColor='#ececec' padding={this.state.pagePadding} topGap={this.state.topGap} key={0}/>
+                <Skills bgColor='#595959' padding={this.state.pagePadding} topGap={this.state.topGap} key={1}/>
+                <Works bgColor="#ececec" padding={this.state.pagePadding} topGap={this.state.topGap} key={2}/>
             </FullPageSlider>
         )
     }

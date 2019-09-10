@@ -4,8 +4,6 @@ import * as React from 'react'
 import Indicators from './Indicators'
 import Menus from './Menus'
 
-import '../styles/animation.scss'
-
 interface SliderProps {
     children: JSX.Element[]
 }
@@ -124,35 +122,6 @@ export default class FullPageSlider extends React.Component<
             )
         })
     }
-    // animationElement(item: any): JSX.Element {
-    //     const keys = this.state.keys
-    //     const prevKey = this.state.prevKey
-    //     const activeKey = this.state.activeKey
-    //     const prevKeyIndex = keys.findIndex(i => i === prevKey)
-    //     const activeKeyIndex = keys.findIndex(i => i === activeKey)
-    //     const up = activeKeyIndex > prevKeyIndex
-    //     const inAnimateClass = up ? 'slide-in-up' : 'slide-in-down'
-    //     const outAnimateClass = up ? 'slide-out-up' : 'slide-out-down'
-    //     return (
-    //         <CSSTransition
-    //             in={item.show}
-    //             timeout={1000}
-    //             unmountOnExit
-    //             classNames={{
-    //                 // appearActive: inAnimateClass,
-    //                 appear: 'animate',
-    //                 enterActive: inAnimateClass,
-    //                 exit: 'animate',
-    //                 exitActive: outAnimateClass
-    //             }}
-    //             key={item.key}
-    //         >
-    //             <div style={{ width: '100vw', height: '100vh' }}>
-    //                 {item.element}
-    //             </div>
-    //         </CSSTransition>
-    //     )
-    // }
     render() {
         return (
             <main
