@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.scss"],"names":[],"mappings":"AAAA,wBAEQ,UAAW,CACX,WAAY,CAHpB,SAOQ,cAAe","file":"main.94b2ec44.chunk.css","sourcesContent":["#root {\n    section.full-page {\n        width: 100%;\n        height: 100%;\n    }\n\n    h1 {\n        font-size: 26px;\n    }\n}\n"]}
