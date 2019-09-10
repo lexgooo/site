@@ -84,10 +84,10 @@ export default class FullPageSlider extends React.Component<
                 scrollAble: true
             })
             clearTimeout(timer)
-        }, 2000)
+        }, 800)
     }
     handleScroll(e: any) {
-        if (this.state.scrollAble && Math.abs(e.deltaY) > 5) {
+        if (this.state.scrollAble && Math.abs(e.deltaY) > 2) {
             this.setState({
                 scrollAble: false
             })
@@ -118,7 +118,7 @@ export default class FullPageSlider extends React.Component<
     children(): JSX.Element[] | any {
         return this.state.list.map((item: any) => {
             return (
-                <div style={{ width: '100vw', height: '100vh' }}>
+                <div style={{ width: '100vw', height: '100vh' }} key={item.key}>
                     {item.element}
                 </div>
             )
@@ -157,10 +157,13 @@ export default class FullPageSlider extends React.Component<
         return (
             <main
                 onWheel={(e: any) => this.handleScroll(e)}
-                style={{ overflow: 'hidden' }}
+                style={{ overflow: 'hidden', height: '100vh'}}
             >
                 <Menus currentBgColor={this.state.currentBgColor} />
-                <div>{this.children()}</div>
+                <div style={{
+                    transition: 'all 700ms ease 0ms',
+                    transform: `translateY(-${this.state.activeKey * 100}vh)`
+                }}>{this.children()}</div>
                 <Indicators
                     keys={this.state.keys}
                     activeKey={this.state.activeKey}
