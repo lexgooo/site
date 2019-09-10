@@ -87,7 +87,7 @@ export default class FullPageSlider extends React.Component<
         }, 800)
     }
     handleScroll(e: any) {
-        if (this.state.scrollAble && Math.abs(e.deltaY) > 2) {
+        if (this.state.scrollAble && Math.abs(e.deltaY) > 5) {
             this.setState({
                 scrollAble: false
             })
