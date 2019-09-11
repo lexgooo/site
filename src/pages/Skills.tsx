@@ -11,10 +11,10 @@ export default class Skills extends React.Component<{bgColor: string; padding: s
                 padding: this.props.padding,
                 display: 'flex'
             }}>
-                <div className="img" style={{flex: '1', paddingTop: this.props.topGap}}>
-                    <VerticalTitle title="my skills" bgColor={this.props.bgColor}/>
+                <div className="img" style={{flex: '1'}}>
+                    <VerticalTitle title="my skills" bgColor={this.props.bgColor} marginTop={this.props.topGap}/>
                 </div>
-                <div className="content" style={{flex: '1', paddingTop: '10%'}}>
+                <div className="content" style={{flex: '1'}}>
                     
                 </div>
             </section>

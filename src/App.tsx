@@ -2,7 +2,7 @@ import * as React from 'react'
 import './styles/App.scss'
 
 import FullPageSlider from './widgets/FullPageSlider'
-import Introduction from './pages/Introduction'
+import Introduction from './pages/Introduction/Index'
 import Skills from './pages/Skills'
 import Works from './pages/Works'
 

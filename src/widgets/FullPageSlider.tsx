@@ -116,7 +116,7 @@ export default class FullPageSlider extends React.Component<
     children(): JSX.Element[] | any {
         return this.state.list.map((item: any) => {
             return (
-                <div style={{ width: '100vw', height: '100vh' }} key={item.key}>
+                <div style={{ width: '100vw', height: '100vh' }} className={item.show ? 'active' : ''} key={item.key}>
                     {item.element}
                 </div>
             )

@@ -11,8 +11,8 @@ export default class Works extends React.Component<{bgColor: string; padding: st
                 padding: this.props.padding,
                 display: 'flex'
             }}>
-                <div className="content" style={{flex: '1', paddingTop: this.props.topGap}}>
-                    <VerticalTitle title="my works" bgColor={this.props.bgColor}/>
+                <div className="content" style={{flex: '1'}}>
+                    <VerticalTitle title="my works" bgColor={this.props.bgColor} marginTop={this.props.topGap}/>
                 </div>
                 <div className="img" style={{flex: '1'}}></div>
             </section>
